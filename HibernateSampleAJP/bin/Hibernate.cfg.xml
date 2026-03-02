@@ -22,7 +22,7 @@
 		<property name="current_session_context_class">thread</property>
 		<property name="class"> com.aun.Students>
 		</property>
-		<property name="class"> com.anu.Dealer>
+		<property name="class"> com.aun.Customer>
 		</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
  	<!--  <property name="hibernate.hbm2ddl.auto">create</property> -->	

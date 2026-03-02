@@ -20,7 +20,7 @@ public class StudentUpdate {
 			StudentsTab student1 = mySession.get(StudentsTab.class, 1);
 			student1.setStdEmail("kiran@gmail.com");
 			student1.setStdCourse("MTech");
-			mySession.getTransaction().commit();
+			mySession.getTransaction().commit(); 
 			System.out.println("bitch");
 
 		}
