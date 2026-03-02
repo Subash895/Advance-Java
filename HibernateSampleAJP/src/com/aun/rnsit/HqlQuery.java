@@ -1,7 +1,6 @@
 package com.aun.rnsit;
 
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,73 +8,62 @@ import org.hibernate.query.Query;
 
 public class HqlQuery {
 
-    public void readCust() {
+    public static void main(String[] args) {
 
-        SessionFactory sFactory = new Configuration()
+        SessionFactory factory = new Configuration()
                 .configure("Hibernate.cfg.xml")
                 .addAnnotatedClass(Customer.class)
                 .buildSessionFactory();
 
-        Session session = sFactory.getCurrentSession();
+        Session session = factory.getCurrentSession();
 
         try {
 
             session.beginTransaction();
 
-            System.out.println("Records with address ending with nagar:");
-            List<Customer> customers1 = session
-                    .createQuery("from Customer where customerAddress like '%nagar'", Customer.class)
-                    .getResultList();
-            displayCustomers(customers1);
+            System.out.println("Customers with address ending with 'nagar'");
 
-            System.out.println("Records with address ending with nagar and purchaseValue > 1000:");
-            List<Customer> customers2 = session
-                    .createQuery("from Customer where purchaseValue > 1000 and customerAddress like '%nagar'", Customer.class)
-                    .getResultList();
-            displayCustomers(customers2);
+            Query<Customer> likeQuery = session.createQuery(
+                    "from Customer where customerAddress like '%nagar'",
+                    Customer.class);
 
-            System.out.println("Records with address ending with nagar OR purchaseValue > 10000:");
-            List<Customer> customers3 = session
-                    .createQuery("from Customer where customerAddress like '%nagar' or purchaseValue > 10000", Customer.class)
-                    .getResultList();
-            displayCustomers(customers3);
+            List<Customer> likeList = likeQuery.getResultList();
+            displayCustomers(likeList);
 
-            System.out.println("----- AGGREGATE FUNCTIONS -----");
+
+            System.out.println("Customers with purchaseValue > 15000");
+
+            Query<Customer> greaterQuery = session.createQuery(
+                    "from Customer where purchaseValue > 15000",
+                    Customer.class);
+
+            List<Customer> greaterList = greaterQuery.getResultList();
+            displayCustomers(greaterList);
+
+
+            System.out.println("Average Purchase Value");
 
             Double avg = session.createQuery(
-                    "select avg(purchaseValue) from Customer", Double.class)
-                    .getSingleResult();
+                    "select avg(purchaseValue) from Customer",
+                    Double.class).getSingleResult();
+
             System.out.println("Average: " + avg);
 
-            Integer max = session.createQuery(
-                    "select max(purchaseValue) from Customer", Integer.class)
-                    .getSingleResult();
-            System.out.println("Max: " + max);
 
-            Integer min = session.createQuery(
-                    "select min(purchaseValue) from Customer", Integer.class)
-                    .getSingleResult();
-            System.out.println("Min: " + min);
+            System.out.println("Total Records");
 
-            // --------- FETCH SPECIFIC COLUMNS USING SQL ---------
+            Long count = session.createQuery(
+                    "select count(*) from Customer",
+                    Long.class).getSingleResult();
 
-            System.out.println("----- Specific Columns using Native SQL -----");
-
-            Query queryArObj = session.createNativeQuery(
-                    "select custName, custPhone, custAddress, purchaseValue from Customers");
-
-            List<Object[]> data = queryArObj.getResultList();
-
-            for (Object[] row : data) {
-                System.out.println(
-                        "CustomerName: " + row[0] +" | CustomerPhone: " + row[1] +" | CustomerAddress: " + row[2] +" | PurchaseValue: " + row[3]
-                );
-            }
+            System.out.println("Count: " + count);
 
             session.getTransaction().commit();
 
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
-            sFactory.close();
+            factory.close();
         }
     }
 
@@ -83,10 +71,6 @@ public class HqlQuery {
         for (Customer c : customers) {
             System.out.println(c);
         }
-        System.out.println("----------------------");
-    }
-
-    public static void main(String[] args) {
-        new HqlQuery().readCust();
+        System.out.println("--------------------------------");
     }
 }

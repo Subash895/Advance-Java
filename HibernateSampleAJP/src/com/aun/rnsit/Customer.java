@@ -1,121 +1,54 @@
 package com.aun.rnsit;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="Customers")
+@Table(name = "customers")
 public class Customer {
 
-    @Id // Primary Key
-    @GeneratedValue(strategy=GenerationType.IDENTITY) // Auto Generated Field
-    @Column(name="id")
-    int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
-    @Column(name="custName")
-    String customerName;
+    @Column(name = "custName")
+    private String customerName;
 
-    @Column(name="custAddress")
-    String customerAddress;
+    @Column(name = "custAddress")
+    private String customerAddress;
 
-    @Column(name="custPhone")
-    String customerPhone;
+    @Column(name = "custPhone")
+    private String customerPhone;
 
-    @Column(name="purchasevalue")
-    int purchaseValue;
+    @Column(name = "purchasevalue")
+    private int purchaseValue;
 
-    
-    
-	public Customer(int id, String customerName, String customerAddress, String customerPhone, int purchaseValue) {
-		super();
-		this.id = id;
-		this.customerName = customerName;
-		this.customerAddress = customerAddress;
-		this.customerPhone = customerPhone;
-		this.purchaseValue = purchaseValue;
-	}
+    public Customer() {
+    }
 
-	public Customer() {
-	}
+    public Customer(String customerName, String customerAddress,
+                    String customerPhone, int purchaseValue) {
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerPhone = customerPhone;
+        this.purchaseValue = purchaseValue;
+    }
 
-	public Customer(String customerName, String customerAddress) {
-		super();
-		this.customerName = customerName;
-		this.customerAddress = customerAddress;
-	}
+    public int getId(){
+    	return id; 
+    	}
+    public String getCustomerName() {
+    	return customerName; }
+    public String getCustomerAddress() { return customerAddress; }
+    public String getCustomerPhone() { return customerPhone; }
+    public int getPurchaseValue() { return purchaseValue; }
 
-
-
-	public int getId() {
-		return id;
-	}
-
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-
-	public String getCustomerName() {
-		return customerName;
-	}
-
-
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
-	}
-
-
-
-	public String getCustomerAddress() {
-		return customerAddress;
-	}
-
-
-
-	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
-	}
-
-
-
-	public String getCustomerPhone() {
-		return customerPhone;
-	}
-
-
-
-	public void setCustomerPhone(String customerPhone) {
-		this.customerPhone = customerPhone;
-	}
-
-
-
-	public int getPurchaseValue() {
-		return purchaseValue;
-	}
-
-
-
-	public void setPurchaseValue(int purchaseValue) {
-		this.purchaseValue = purchaseValue;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Customer [id=" + id + ", customerName=" + customerName + ", customerAddress=" + customerAddress
-				+ ", customerPhone=" + customerPhone + ", purchaseValue=" + purchaseValue + "]";
-	}
-    
-    
+    @Override
+    public String toString() {
+        return "Customer [id=" + id +
+                ", customerName=" + customerName +
+                ", customerAddress=" + customerAddress +
+                ", customerPhone=" + customerPhone +
+                ", purchaseValue=" + purchaseValue + "]";
+    }
 }
-
