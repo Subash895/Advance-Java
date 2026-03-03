@@ -22,6 +22,8 @@ public class RelAddress {
 	private String stateName;
 	
 	
+
+
 	public RelAddress(int id, String cityName, String stateName) {
 		super();
 		Id = id;

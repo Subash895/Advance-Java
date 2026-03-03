@@ -15,6 +15,7 @@ import javax.persistence.Table;
 public class RelStudent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int Id;
 	@Column(name="FirstName")
 	private String FirstName;
 	@Column(name="LastName")
@@ -28,6 +29,12 @@ public class RelStudent {
 	
 	public RelStudent() {
 		
+	}
+	public RelStudent(String firstName, String lastName, String email) {
+		super();
+		FirstName = firstName;
+		LastName = lastName;
+		Email = email;
 	}
 	@Override
 	public String toString() {
