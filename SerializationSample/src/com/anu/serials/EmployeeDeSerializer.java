@@ -10,12 +10,14 @@ public class EmployeeDeSerializer {
 	ArrayList<Employee> adls=new ArrayList<>();
 	public void deSerializeEmployee(){
 	try{
-	ols=new ObjectInputStream(new FileInputStream("employees.txt");
+	ols=new ObjectInputStream(new FileInputStream("employees.txt"));
 	adls=(ArrayList<Employee>)ols.readObject();
 	System.out.println("deserailier object are");
 		for (Employee edls){
 		}
 	}catch(Exception e){
+		
+	}
 	}
 	
 	public static void main(String[] args) {
