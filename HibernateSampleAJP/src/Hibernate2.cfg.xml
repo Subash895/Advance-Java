@@ -20,10 +20,6 @@
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
-		<property name="class"> com.aun.Students>
-		</property>
-		<property name="class"> com.aun.Customer>
-		</property>
 		<property name="class"> com.anu.rnsit.relation.RelStudent>
 		</property>
 		<property name="class"> com.anu.rnsit.relation.RelAddress>

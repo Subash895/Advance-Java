@@ -60,9 +60,5 @@ public class RelAddress {
 		this.stateName = stateName;
 	}
 	
-	
-	
-	
-
 
 }
