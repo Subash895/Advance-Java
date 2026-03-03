@@ -12,14 +12,35 @@ import javax.persistence.Table;
 public class RelAddress {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private int Id;
+	
 	@Column(name= "cityName")
 	private String cityName;
+	
 	@Column(name="StateName")
 	private String stateName;
 	
-	public RelAddress() {
-		
+	
+	public RelAddress(int id, String cityName, String stateName) {
+		super();
+		Id = id;
+		this.cityName = cityName;
+		this.stateName = stateName;
 	}
+
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public RelAddress() {
+		super();
+	}
+
 	public RelAddress(String cityName, String stateName) {
 		super();
 		this.cityName = cityName;
