@@ -24,6 +24,10 @@
 		</property>
 		<property name="class"> com.anu.RelAddress>
 		</property>
+		<property name="class"> com.anu.rnsit.bidiy.Student>
+		</property>
+		<property name="class"> com.anu.rnsit.bidiy.Address>
+		</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
  	<!--  <property name="hibernate.hbm2ddl.auto">create</property> -->	
  		

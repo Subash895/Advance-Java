@@ -43,6 +43,12 @@ public class Address {
 		StdDetail = stdDetail;
 	}
 
+	public Address(String state, String city) {
+		super();
+		State = state;
+		City = city;
+	}
+
 	public Address() {
 		super();
 	}
