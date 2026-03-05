@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -24,8 +23,7 @@ public class RelAddress {
 	@Column(name="StateName")
 	private String stateName;
 	
-//	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinColumn(name="Sid")
+//	@OneToOne(mappedBy="studentAddress", fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 //	private RelStudent Student;
 	
 	
