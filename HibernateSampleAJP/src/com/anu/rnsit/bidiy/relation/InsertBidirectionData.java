@@ -19,7 +19,9 @@ public class InsertBidirectionData {
 			Address tempAddress=new Address("karnataka","goa");
 			
 			tempStudent.setStdAddress(tempAddress);
-			
+			session.beginTransaction();
+			session.save(tempStudent);
+			session.getTransaction().commit();
 		}catch(Exception e) {
 			e.printStackTrace();
 			factory.close();
