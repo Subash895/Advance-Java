@@ -12,6 +12,7 @@ public class InsertData {
 	}
 
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
 		SessionFactory factory = new Configuration()
                 .configure("Hibernate2.cfg.xml")
