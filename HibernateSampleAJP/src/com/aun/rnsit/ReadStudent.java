@@ -18,6 +18,7 @@ public class ReadStudent {
 				.buildSessionFactory();
 		Session mySession = sFactory.openSession();
 		//HQL
+		@SuppressWarnings("unchecked")
 		List <Students> students =mySession.createQuery("from student").list();
 		for (Students student:students) {
 			System.out.println(student);
