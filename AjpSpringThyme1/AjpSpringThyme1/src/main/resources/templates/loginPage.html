@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+
+<body bgcolor="aqua">
+
+<center>
+
+<form th:action="@{/login/authenticate}" th:object="${login}" method="post">
+
+<h2>Welcome to Login Page</h2>
+
+<table border="2">
+
+<tr>
+<td>Enter login ID</td>
+<td>
+<input type="text" th:field="*{loginID}" />
+</td>
+</tr>
+
+<tr>
+<td>Enter password</td>
+<td>
+<input type="password" th:field="*{password}" />
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+	<input type="submit" value="Login"/>
+	<input type="reset" value="reset"/>
+</td>
+</tr>
+
+</table>
+
+</form>
+
+</center>
+
+</body>
+</html>

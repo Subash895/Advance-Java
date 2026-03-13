@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Success</title>
+</head>
+<body bgcolor="tomato">
+<center>
+<h2>Welcome to Employee data management page </h2>
+<h3 th:text=" 'welcome' +${login.loginid}+ ' to Employee Page"></h3>
+<a th:href="@{/employees/getData}">Got to employee list page !!!</a>
+</center>
+</body>
+</html>
